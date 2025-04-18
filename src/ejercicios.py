@@ -21,12 +21,11 @@ def maximo_matriz(matriz):
 # Ejercicio 3: Verificar si un número es primo
 def es_primo(n):
     if n <= 1: #Descartamos los negativos y el 1
-        resultado = False
+        return False
     for i in range(2, int(n**0.5) + 1): #Buscamos divisores hasta la raiz cuadrada de n, el 1 es para que tambien tome el valor de la raiz 
         if n % i == 0: # si tiene divisores es falso
-            resultado = False
-    resultado = True
-    return resultado
+            return False
+    return True
     pass
 
 # Ejercicio 4: Transponer una matriz
@@ -85,7 +84,7 @@ def lista_ordenada(lista):
 def cifrado_cesar(texto, desplazamiento):
     abecedario = [
         'a', 'b', 'c', 'd', 'e', 'f', 'g',
-        'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ'
+        'h', 'i', 'j', 'k', 'l', 'm', 'n',
         'o', 'p', 'q', 'r', 's', 't', 'u',
         'v', 'w', 'x', 'y', 'z'
     ]
@@ -102,7 +101,7 @@ def cifrado_cesar(texto, desplazamiento):
                     break
             
             # Calculamos la nueva posición
-            nueva_posicion = (posicion_actual + desplazamiento) % 27 #se calcula la posicion como el residuo de la suma dividido la cantidad de caracteres del abecedario (27)
+            nueva_posicion = (posicion_actual + desplazamiento) % 26 #se calcula la posicion como el residuo de la suma dividido la cantidad de caracteres del abecedario (27)
             nueva_letra = abecedario[nueva_posicion]
             
             if letra.isupper(): #Preguntamos si la letra era mayuscula o no con este metodo
